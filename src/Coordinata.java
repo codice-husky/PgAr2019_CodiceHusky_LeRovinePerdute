@@ -8,4 +8,16 @@ public class Coordinata {
         this.y = _y;
         this.h = _h;
     }
+
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+
+	public int getH() {
+		return h;
+	}
+    
 }
