@@ -1,7 +1,16 @@
 import java.util.LinkedList;
 
-public class Rovina extends LinkedList<Città>{
-	public Rovina() {}
+public  class Rovina extends LinkedList<Città>{
+	
+	private static final long serialVersionUID = 3100388286862619819L;
+	Double[] valori;
+	int[]da;
+	
+	
+	public Rovina() {
+		valori = new Double[this.size()];
+		da = new int[this.size()];
+	}
 	
 	public Città getCittàDaId(int indice) {
     	for(Città città:this) {
@@ -28,8 +37,10 @@ public class Rovina extends LinkedList<Città>{
     
     public void dijkstra() {
     	LinkedList<Città> copia= this;
-    	Double[] valori = new Double[this.size()];
-    	String[]da = new String[this.size()];
+    	
+    	valori = new Double[this.size()];
+		da = new int[this.size()];
+		
     	valori[0] = 0.0;
     	for(int i = 1;i<valori.length;i++) {
     		valori[i] = Double.POSITIVE_INFINITY; //in alternativa Double.POSITIVE_INFINITY
@@ -41,6 +52,7 @@ public class Rovina extends LinkedList<Città>{
     			if(!città.passato) {
     				memo = città.getId();
     				min = valori[memo];
+    				break;
     			}
     		}
     		int indice = memo;
@@ -54,9 +66,9 @@ public class Rovina extends LinkedList<Città>{
     		for(int vicino: inControllo.getVicini()) {
     			if(!copia.get(vicino).passato) {
     				double distanza = valori[indice] + getDistH(inControllo, copia.get(vicino));
-    				if(distanza <copia.get(vicino).getId()) {
-    					valori[copia.get(vicino).getId()] = distanza;
-    					da[copia.get(vicino).getId()] = inControllo.getNome();
+    				if(distanza <valori[vicino]) {
+    					valori[vicino] = distanza;
+    					da[vicino] = inControllo.getId();
     				}
     			}
     		}
@@ -67,8 +79,17 @@ public class Rovina extends LinkedList<Città>{
     		}
     		if(cont == 1) break;
     	}
-    	for(int i = 0;i<valori.length;i++) {
-    		System.out.println(valori[i]);
-    	}
+    	System.out.println(calcolaPercorso());
+    	
+    }
+    public String calcolaPercorso() {
+    	int idRovina = this.size()-1;
+    	int perc = da[idRovina];
+    	return percorso(perc) +" -> "+ this.get(idRovina).getNome() ;
+    }
+    
+    public String percorso(int perc) {
+    	if(perc == 0) return this.get(perc).getNome();
+    	return percorso(da[perc])+" -> "+this.get(perc).getNome();
     }
 }
