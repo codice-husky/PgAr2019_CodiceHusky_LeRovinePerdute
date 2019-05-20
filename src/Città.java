@@ -7,11 +7,11 @@ public class Città {
     private LinkedList<Integer> vicini;
     boolean passato;
     
-    public Città(int _id,String _nome, String x, String y, String h){
+    public Città(int _id,String _nome, String x, String y, String h, LinkedList<Integer> _vicini){
         this.coord = new Coordinata(x, y, h);
         this.nome = _nome;
         this.id = _id;
-        this.vicini = new LinkedList<Integer>();
+        this.vicini = _vicini;
         this.passato = false; //per dijkstra
     }
     
