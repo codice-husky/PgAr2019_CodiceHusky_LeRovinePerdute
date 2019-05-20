@@ -36,14 +36,11 @@ public class RovineMain {
 		rovine.dijkstra();*/
 		XMLInput inputcitta = new XMLInput("xml/PgAr_Map_5.xml");
 		
-		Città test = inputcitta.readNextCittà();
-		test = inputcitta.readNextCittà();
-		System.out.println(test.getVicini().toString());
-		test = inputcitta.readNextCittà();
-		test = inputcitta.readNextCittà();
-		test = inputcitta.readNextCittà();
-		test = inputcitta.readNextCittà();
-		test = inputcitta.readNextCittà();
+		for(int i = 0;i<5;i++) {
+			rovine.add(inputcitta.readNextCittà());
+			
+		}
+		rovine.dijkstra();
 	}
 	
 	public void addRovine (Città città) {

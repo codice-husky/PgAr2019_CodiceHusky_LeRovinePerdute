@@ -34,7 +34,7 @@ public class Rovina extends LinkedList<Città>{
     	for(int i = 1;i<valori.length;i++) {
     		valori[i] = Double.POSITIVE_INFINITY; //in alternativa Double.POSITIVE_INFINITY
     	}
-    	while(copia.size()!=1) {
+    	while(true) {
     		double min = Double.POSITIVE_INFINITY;
     		int memo = 0;
     		for(Città città:copia) {
@@ -60,6 +60,12 @@ public class Rovina extends LinkedList<Città>{
     				}
     			}
     		}
+    		int cont = 0;
+    		for(Città c: copia) {
+    			if(!c.passato) cont++;
+    			
+    		}
+    		if(cont == 1) break;
     	}
     	for(int i = 0;i<valori.length;i++) {
     		System.out.println(valori[i]);
