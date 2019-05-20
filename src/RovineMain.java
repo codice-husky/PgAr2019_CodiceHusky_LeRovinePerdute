@@ -11,6 +11,7 @@ public class RovineMain {
 			
 		}
 		ArrayList<Città> percorsoXY = rovine.dijkstra(true);
+		//per sapere il consumo basta invocare rovine.dijkstra(true/false).getConsumo();
 		ArrayList<Città> percorsoH= rovine.dijkstra(false);
 		
 	}

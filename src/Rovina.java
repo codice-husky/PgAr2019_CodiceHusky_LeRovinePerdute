@@ -97,5 +97,7 @@ public  class Rovina extends LinkedList<Città>{
     	percorso.add(this.get(rovina));
     	if(valori[rovina]!= 0) calcolaPercorso(da[rovina]); 
     }
-    
+    public double getConsumo() {
+    	return valori[this.size()-1];
+    }
 }
