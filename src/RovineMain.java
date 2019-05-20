@@ -3,7 +3,7 @@ import java.util.LinkedList;
 public class RovineMain {
 	private static Rovina rovine = new Rovina();
 	public static void main(String[] args) {
-		LinkedList<Integer> checco = new LinkedList<>();
+		/*LinkedList<Integer> checco = new LinkedList<>();
 		checco.add(1);
 		checco.add(3);
 		rovine.add(new Città(0,"campo base","8279","8338","2745",checco));
@@ -33,7 +33,17 @@ public class RovineMain {
 		checco.add(3);
 		rovine.add(new Città(4,"Rovine Perdute","4415","4898","954",checco));
 				
-		rovine.dijkstra();
+		rovine.dijkstra();*/
+		XMLInput inputcitta = new XMLInput("xml/PgAr_Map_5.xml");
+		
+		Città test = inputcitta.readNextCittà();
+		test = inputcitta.readNextCittà();
+		System.out.println(test.getVicini().toString());
+		test = inputcitta.readNextCittà();
+		test = inputcitta.readNextCittà();
+		test = inputcitta.readNextCittà();
+		test = inputcitta.readNextCittà();
+		test = inputcitta.readNextCittà();
 	}
 	
 	public void addRovine (Città città) {
