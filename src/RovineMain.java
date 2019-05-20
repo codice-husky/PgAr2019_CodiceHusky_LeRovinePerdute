@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class RovineMain {
 	private static Rovina rovine = new Rovina();
 	public static void main(String[] args) {
@@ -8,7 +10,9 @@ public class RovineMain {
 			rovine.add(inputcitta.readNextCittà());
 			
 		}
-		rovine.dijkstra();
+		ArrayList<Città> percorsoXY = rovine.dijkstra(true);
+		ArrayList<Città> percorsoH= rovine.dijkstra(false);
+		
 	}
 	
 	public void addRovine (Città città) {

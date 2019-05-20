@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public  class Rovina extends LinkedList<Città>{
@@ -5,11 +6,14 @@ public  class Rovina extends LinkedList<Città>{
 	private static final long serialVersionUID = 3100388286862619819L;
 	Double[] valori;
 	int[]da;
+	ArrayList<Città> percorso;
 	
 	
 	public Rovina() {
+		super();
 		valori = new Double[this.size()];
 		da = new int[this.size()];
+		percorso = new ArrayList<Città>();
 	}
 	
 	public Città getCittàDaId(int indice) {
@@ -35,7 +39,7 @@ public  class Rovina extends LinkedList<Città>{
     	return Math.abs(a.getCoord().getH()-b.getCoord().getH());
     }
     
-    public void dijkstra() {
+    public ArrayList<Città> dijkstra(boolean xy) {
     	LinkedList<Città> copia= this;
     	
     	valori = new Double[this.size()];
@@ -65,7 +69,12 @@ public  class Rovina extends LinkedList<Città>{
     		inControllo.passato = true;
     		for(int vicino: inControllo.getVicini()) {
     			if(!copia.get(vicino).passato) {
-    				double distanza = valori[indice] + getDistH(inControllo, copia.get(vicino));
+    				double distanza = valori[indice];
+    				if(xy) {
+    					distanza += getDistXY(inControllo, copia.get(vicino));
+    				}else {
+    					distanza+= getDistH(inControllo, copia.get(vicino));
+    				}
     				if(distanza <valori[vicino]) {
     					valori[vicino] = distanza;
     					da[vicino] = inControllo.getId();
@@ -78,18 +87,15 @@ public  class Rovina extends LinkedList<Città>{
     			
     		}
     		if(cont == 1) break;
-    	}
-    	System.out.println(calcolaPercorso());
-    	
+    		
+    	} 
+    	int rovina = this.size()-1;
+    	calcolaPercorso(rovina);
+    	return percorso;
     }
-    public String calcolaPercorso() {
-    	int idRovina = this.size()-1;
-    	int perc = da[idRovina];
-    	return percorso(perc) +" -> "+ this.get(idRovina).getNome() ;
+    public  void calcolaPercorso(int rovina){
+    	percorso.add(this.get(rovina));
+    	if(valori[rovina]!= 0) calcolaPercorso(da[rovina]); 
     }
     
-    public String percorso(int perc) {
-    	if(perc == 0) return this.get(perc).getNome();
-    	return percorso(da[perc])+" -> "+this.get(perc).getNome();
-    }
 }
