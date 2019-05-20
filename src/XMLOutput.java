@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -54,6 +55,7 @@ public class XMLOutput {
     		xmlIdentingWriter.writeAttribute("team", team);
     		xmlIdentingWriter.writeAttribute("cost", Integer.toString(cost));
     		xmlIdentingWriter.writeAttribute("cities", Integer.toString(cities));
+    		Collections.reverse(hops);
     		for(Città hop : hops) {
     			xmlIdentingWriter.writeStartElement("city");
         		xmlIdentingWriter.writeAttribute("id", Integer.toString(hop.getId()));
