@@ -7,6 +7,7 @@ public  class Rovina extends LinkedList<Città>{
 	Double[] valori;
 	int[]da;
 	ArrayList<Città> percorso;
+	LinkedList<Città> copia= (LinkedList<Città>) this.clone();
 	
 	
 	public Rovina() {
@@ -40,10 +41,10 @@ public  class Rovina extends LinkedList<Città>{
     }
     
     public ArrayList<Città> dijkstra(boolean xy) {
-    	LinkedList<Città> copia= this;
     	
-    	valori = new Double[this.size()];
-		da = new int[this.size()];
+    	copia = (LinkedList<Città>) this.clone();;
+    	valori = new Double[copia.size()];
+		da = new int[copia.size()];
 		
     	valori[0] = 0.0;
     	for(int i = 1;i<valori.length;i++) {
@@ -89,15 +90,15 @@ public  class Rovina extends LinkedList<Città>{
     		if(cont == 1) break;
     		
     	} 
-    	int rovina = this.size()-1;
+    	int rovina = copia.size()-1;
     	calcolaPercorso(rovina);
     	return percorso;
     }
     public  void calcolaPercorso(int rovina){
-    	percorso.add(this.get(rovina));
+    	percorso.add(copia.get(rovina));
     	if(valori[rovina]!= 0) calcolaPercorso(da[rovina]); 
     }
     public double getConsumo() {
-    	return valori[this.size()-1];
+    	return valori[copia.size()-1];
     }
 }
