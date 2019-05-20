@@ -1,22 +1,22 @@
 public class Coordinata {
-    private int x;
-    private int y;
-    private int h;
+    private String x;
+    private String y;
+    private String h;
     
-    public Coordinata(int _x, int _y, int _h){
+    public Coordinata(String _x, String _y, String _h){
         this.x = _x;
         this.y = _y;
         this.h = _h;
     }
 
-	public int getX() {
+	public String getX() {
 		return x;
 	}
-	public int getY() {
+	public String getY() {
 		return y;
 	}
 
-	public int getH() {
+	public String getH() {
 		return h;
 	}
     

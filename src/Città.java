@@ -1,16 +1,18 @@
 import java.util.LinkedList;
 
 public class Città {
-    private Coordinata coord;
-    private String nome;
-    private int id;
+	private int id;
+	private String nome;
+	private Coordinata coord;    
     private LinkedList<Integer> vicini;
+    boolean passato;
     
-    public Città(int _x, int _y, int _h, String _nome, int _id ){
-        this.coord = new Coordinata(_x, _y, _h);
+    public Città(int _id,String _nome, String x, String y, String h){
+        this.coord = new Coordinata(x, y, h);
         this.nome = _nome;
         this.id = _id;
         this.vicini = new LinkedList<Integer>();
+        this.passato = false; //per dijkstra
     }
     
     public Coordinata getCoord(){
@@ -26,5 +28,8 @@ public class Città {
     
     public void addCittà(int città) {
     	vicini.add(città);
+    }
+    public LinkedList<Integer> getVicini(){
+    	return vicini;
     }
 }
