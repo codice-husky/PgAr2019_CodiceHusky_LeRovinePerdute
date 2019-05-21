@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route team="Tonatiuh" cost="116111.86922570717" cities="143">
+    <city id="0" name="campo base"/>
+    <city id="91" name="Mixco Vieio"/>
+    <city id="175" name="Chiqua"/>
+    <city id="236" name="Tenochticlan"/>
+    <city id="294" name="Quetzacoatl"/>
+    <city id="368" name="Cusco"/>
+    <city id="414" name="Macondo"/>
+    <city id="487" name="Kopa"/>
+    <city id="585" name="Guaia"/>
+    <city id="670" name="Chiqua"/>
+    <city id="696" name="Teotiguacan"/>
+    <city id="775" name="Quetzacoatl"/>
+    <city id="787" name="Quetzacoatl"/>
+    <city id="884" name="El Mirador"/>
+    <city id="978" name="Guapalupa"/>
+    <city id="1015" name="Kopa"/>
+    <city id="1096" name="Macondo"/>
+    <city id="1189" name="El Mirador"/>
+    <city id="1219" name="Rio"/>
+    <city id="1298" name="Guapalupa"/>
+    <city id="1353" name="Tikal"/>
+    <city id="1451" name="Tenochticlan"/>
+    <city id="1547" name="Guapalupa"/>
+    <city id="1594" name="Quetzacoatl"/>
+    <city id="1682" name="Kopa"/>
+    <city id="1778" name="Quetzacoatl"/>
+    <city id="1842" name="Macondo"/>
+    <city id="1939" name="Quetzacoatl"/>
+    <city id="2025" name="El Mirador"/>
+    <city id="2122" name="El Mirador"/>
+    <city id="2214" name="Chiqua"/>
+    <city id="2273" name="Tikal"/>
+    <city id="2349" name="Chiqua"/>
+    <city id="2419" name="El Mirador"/>
+    <city id="2508" name="Macondo"/>
+    <city id="2595" name="Caracol"/>
+    <city id="2693" name="Quetzacoatl"/>
+    <city id="2790" name="Quetzacoatl"/>
+    <city id="2847" name="Rio"/>
+    <city id="2940" name="Mixco Vieio"/>
+    <city id="2986" name="Mixco Vieio"/>
+    <city id="3049" name="Macondo"/>
+    <city id="3091" name="Rio"/>
+    <city id="3161" name="Caracol"/>
+    <city id="3235" name="Chiqua"/>
+    <city id="3316" name="Tenochticlan"/>
+    <city id="3384" name="Machu Picchu"/>
+    <city id="3479" name="Cusco"/>
+    <city id="3579" name="Tikal"/>
+    <city id="3656" name="Tikal"/>
+    <city id="3743" name="Quirigua"/>
+    <city id="3818" name="Rio"/>
+    <city id="3902" name="Rio"/>
+    <city id="3989" name="Verolanuova"/>
+    <city id="4081" name="Chiqua"/>
+    <city id="4150" name="Kopa"/>
+    <city id="4221" name="Tikal"/>
+    <city id="4275" name="Machu Picchu"/>
+    <city id="4363" name="Tenochticlan"/>
+    <city id="4463" name="Macondo"/>
+    <city id="4505" name="Kopa"/>
+    <city id="4563" name="Quetzacoatl"/>
+    <city id="4657" name="Mixco Vieio"/>
+    <city id="4740" name="Cusco"/>
+    <city id="4783" name="Rio"/>
+    <city id="4873" name="Chiva"/>
+    <city id="4905" name="Cusco"/>
+    <city id="4976" name="El Mirador"/>
+    <city id="5067" name="Chiqua"/>
+    <city id="5142" name="Caracol"/>
+    <city id="5232" name="Rio"/>
+    <city id="5307" name="Tikal"/>
+    <city id="5345" name="Mixco Vieio"/>
+    <city id="5316" name="Qu'umarkaj"/>
+    <city id="5355" name="El Mirador"/>
+    <city id="5452" name="Chiqua"/>
+    <city id="5535" name="Caracol"/>
+    <city id="5581" name="Quetzacoatl"/>
+    <city id="5670" name="Cusco"/>
+    <city id="5726" name="Quetzacoatl"/>
+    <city id="5790" name="Caracol"/>
+    <city id="5890" name="Caracol"/>
+    <city id="5955" name="Teotiguacan"/>
+    <city id="6051" name="Guaia"/>
+    <city id="6129" name="Chiqua"/>
+    <city id="6198" name="Tenochticlan"/>
+    <city id="6281" name="Cusco"/>
+    <city id="6353" name="Verolanuova"/>
+    <city id="6373" name="Caracol"/>
+    <city id="6459" name="Quetzacoatl"/>
+    <city id="6514" name="Teotiguacan"/>
+    <city id="6590" name="El Mirador"/>
+    <city id="6651" name="Chiva"/>
+    <city id="6751" name="Guaia"/>
+    <city id="6695" name="Tikal"/>
+    <city id="6787" name="Guaia"/>
+    <city id="6876" name="Tikal"/>
+    <city id="6900" name="Kopa"/>
+    <city id="6992" name="Teotiguacan"/>
+    <city id="7071" name="Rio"/>
+    <city id="7100" name="Macondo"/>
+    <city id="7176" name="Chiva"/>
+    <city id="7276" name="Macondo"/>
+    <city id="7370" name="Quetzacoatl"/>
+    <city id="7444" name="Quetzacoatl"/>
+    <city id="7485" name="Quetzacoatl"/>
+    <city id="7563" name="Caracol"/>
+    <city id="7562" name="Cusco"/>
+    <city id="7596" name="Guaia"/>
+    <city id="7691" name="Qu'umarkaj"/>
+    <city id="7789" name="Guapalupa"/>
+    <city id="7838" name="Teotiguacan"/>
+    <city id="7914" name="Mixco Vieio"/>
+    <city id="8013" name="Rio"/>
+    <city id="8100" name="Quirigua"/>
+    <city id="8174" name="Quetzacoatl"/>
+    <city id="8236" name="Macondo"/>
+    <city id="8319" name="Tenochticlan"/>
+    <city id="8368" name="Mixco Vieio"/>
+    <city id="8418" name="Quirigua"/>
+    <city id="8512" name="Mixco Vieio"/>
+    <city id="8607" name="Rio"/>
+    <city id="8662" name="Caracol"/>
+    <city id="8727" name="Tikal"/>
+    <city id="8809" name="Machu Picchu"/>
+    <city id="8861" name="Quirigua"/>
+    <city id="8937" name="Guaia"/>
+    <city id="9028" name="Cusco"/>
+    <city id="9074" name="Quirigua"/>
+    <city id="9174" name="Quetzacoatl"/>
+    <city id="9196" name="Tikal"/>
+    <city id="9242" name="Machu Picchu"/>
+    <city id="9339" name="Qu'umarkaj"/>
+    <city id="9400" name="Chiqua"/>
+    <city id="9488" name="Qu'umarkaj"/>
+    <city id="9542" name="Kopa"/>
+    <city id="9564" name="Quirigua"/>
+    <city id="9662" name="Chiqua"/>
+    <city id="9754" name="Verolanuova"/>
+    <city id="9829" name="Guaia"/>
+    <city id="9872" name="Caracol"/>
+    <city id="9962" name="Teotiguacan"/>
+    <city id="9999" name="Rovine Perdute"/>
+  </route>
+  <route team="Metztli" cost="15123.0" cities="161">
+    <city id="0" name="campo base"/>
+    <city id="98" name="Chiva"/>
+    <city id="189" name="Guaia"/>
+    <city id="284" name="Tikal"/>
+    <city id="360" name="El Mirador"/>
+    <city id="443" name="Tikal"/>
+    <city id="521" name="Kopa"/>
+    <city id="621" name="Machu Picchu"/>
+    <city id="705" name="Teotiguacan"/>
+    <city id="749" name="Rio"/>
+    <city id="818" name="Guapalupa"/>
+    <city id="918" name="Machu Picchu"/>
+    <city id="946" name="Qu'umarkaj"/>
+    <city id="1041" name="Machu Picchu"/>
+    <city id="1130" name="Caracol"/>
+    <city id="1203" name="Kopa"/>
+    <city id="1294" name="Verolanuova"/>
+    <city id="1390" name="Quetzacoatl"/>
+    <city id="1475" name="Macondo"/>
+    <city id="1538" name="Guapalupa"/>
+    <city id="1635" name="Kopa"/>
+    <city id="1681" name="Tikal"/>
+    <city id="1777" name="Guapalupa"/>
+    <city id="1842" name="Macondo"/>
+    <city id="1908" name="Guaia"/>
+    <city id="1864" name="Chiva"/>
+    <city id="1955" name="Chiva"/>
+    <city id="1934" name="Tenochticlan"/>
+    <city id="1986" name="El Mirador"/>
+    <city id="2024" name="Macondo"/>
+    <city id="2068" name="Caracol"/>
+    <city id="2164" name="Mixco Vieio"/>
+    <city id="2211" name="Kopa"/>
+    <city id="2301" name="Guaia"/>
+    <city id="2375" name="Guapalupa"/>
+    <city id="2420" name="Guapalupa"/>
+    <city id="2465" name="Cusco"/>
+    <city id="2557" name="Quirigua"/>
+    <city id="2578" name="Machu Picchu"/>
+    <city id="2674" name="Teotiguacan"/>
+    <city id="2699" name="Teotiguacan"/>
+    <city id="2771" name="Tenochticlan"/>
+    <city id="2868" name="Quetzacoatl"/>
+    <city id="2929" name="Tenochticlan"/>
+    <city id="2970" name="Mixco Vieio"/>
+    <city id="3031" name="Rio"/>
+    <city id="3123" name="Kopa"/>
+    <city id="3197" name="Rio"/>
+    <city id="3277" name="Machu Picchu"/>
+    <city id="3372" name="Chiqua"/>
+    <city id="3410" name="Qu'umarkaj"/>
+    <city id="3478" name="Cusco"/>
+    <city id="3576" name="Guapalupa"/>
+    <city id="3603" name="Qu'umarkaj"/>
+    <city id="3614" name="Verolanuova"/>
+    <city id="3679" name="Chiqua"/>
+    <city id="3747" name="Teotiguacan"/>
+    <city id="3772" name="Macondo"/>
+    <city id="3829" name="Macondo"/>
+    <city id="3892" name="Guaia"/>
+    <city id="3946" name="Quetzacoatl"/>
+    <city id="3903" name="El Mirador"/>
+    <city id="4003" name="Tikal"/>
+    <city id="4083" name="Rio"/>
+    <city id="4119" name="Caracol"/>
+    <city id="4194" name="Cusco"/>
+    <city id="4230" name="Chiva"/>
+    <city id="4321" name="Caracol"/>
+    <city id="4382" name="Qu'umarkaj"/>
+    <city id="4465" name="Macondo"/>
+    <city id="4491" name="Cusco"/>
+    <city id="4578" name="Verolanuova"/>
+    <city id="4561" name="Guapalupa"/>
+    <city id="4625" name="Quetzacoatl"/>
+    <city id="4713" name="Quirigua"/>
+    <city id="4726" name="Teotiguacan"/>
+    <city id="4774" name="Chiva"/>
+    <city id="4838" name="Rio"/>
+    <city id="4923" name="Verolanuova"/>
+    <city id="5005" name="Teotiguacan"/>
+    <city id="5028" name="Chiqua"/>
+    <city id="5080" name="Caracol"/>
+    <city id="5136" name="Tenochticlan"/>
+    <city id="5221" name="Caracol"/>
+    <city id="5274" name="Kopa"/>
+    <city id="5349" name="Cusco"/>
+    <city id="5411" name="Tenochticlan"/>
+    <city id="5495" name="Guaia"/>
+    <city id="5594" name="El Mirador"/>
+    <city id="5635" name="Macondo"/>
+    <city id="5729" name="Machu Picchu"/>
+    <city id="5824" name="Verolanuova"/>
+    <city id="5904" name="Cusco"/>
+    <city id="5987" name="El Mirador"/>
+    <city id="5999" name="Kopa"/>
+    <city id="6089" name="Tikal"/>
+    <city id="6181" name="Chiqua"/>
+    <city id="6264" name="Rio"/>
+    <city id="6314" name="Guaia"/>
+    <city id="6411" name="Tenochticlan"/>
+    <city id="6436" name="Tikal"/>
+    <city id="6424" name="Quetzacoatl"/>
+    <city id="6433" name="Macondo"/>
+    <city id="6528" name="Tenochticlan"/>
+    <city id="6628" name="El Mirador"/>
+    <city id="6699" name="Machu Picchu"/>
+    <city id="6745" name="Verolanuova"/>
+    <city id="6817" name="Mixco Vieio"/>
+    <city id="6877" name="Caracol"/>
+    <city id="6970" name="Caracol"/>
+    <city id="6959" name="Tikal"/>
+    <city id="7047" name="Machu Picchu"/>
+    <city id="7136" name="El Mirador"/>
+    <city id="7193" name="Macondo"/>
+    <city id="7238" name="Guapalupa"/>
+    <city id="7334" name="Tenochticlan"/>
+    <city id="7389" name="Quetzacoatl"/>
+    <city id="7366" name="Quetzacoatl"/>
+    <city id="7451" name="Verolanuova"/>
+    <city id="7503" name="Teotiguacan"/>
+    <city id="7581" name="Quirigua"/>
+    <city id="7679" name="Tenochticlan"/>
+    <city id="7736" name="Mixco Vieio"/>
+    <city id="7833" name="Quetzacoatl"/>
+    <city id="7892" name="Chiqua"/>
+    <city id="7915" name="Cusco"/>
+    <city id="7919" name="Rio"/>
+    <city id="8000" name="Caracol"/>
+    <city id="8059" name="Quetzacoatl"/>
+    <city id="8145" name="Rio"/>
+    <city id="8245" name="Tenochticlan"/>
+    <city id="8261" name="El Mirador"/>
+    <city id="8320" name="Tenochticlan"/>
+    <city id="8413" name="Machu Picchu"/>
+    <city id="8460" name="Tikal"/>
+    <city id="8538" name="Rio"/>
+    <city id="8588" name="Machu Picchu"/>
+    <city id="8637" name="Quirigua"/>
+    <city id="8692" name="Kopa"/>
+    <city id="8698" name="Qu'umarkaj"/>
+    <city id="8755" name="Guaia"/>
+    <city id="8835" name="Rio"/>
+    <city id="8864" name="Kopa"/>
+    <city id="8961" name="Quetzacoatl"/>
+    <city id="9015" name="El Mirador"/>
+    <city id="9070" name="Tenochticlan"/>
+    <city id="9149" name="Tikal"/>
+    <city id="9226" name="Quirigua"/>
+    <city id="9290" name="Chiva"/>
+    <city id="9347" name="Kopa"/>
+    <city id="9447" name="Machu Picchu"/>
+    <city id="9521" name="Verolanuova"/>
+    <city id="9616" name="Mixco Vieio"/>
+    <city id="9662" name="Chiqua"/>
+    <city id="9702" name="Guaia"/>
+    <city id="9718" name="Macondo"/>
+    <city id="9782" name="Caracol"/>
+    <city id="9847" name="Kopa"/>
+    <city id="9935" name="Guapalupa"/>
+    <city id="9978" name="Guapalupa"/>
+    <city id="9999" name="Rovine Perdute"/>
+  </route>
+</routes>
