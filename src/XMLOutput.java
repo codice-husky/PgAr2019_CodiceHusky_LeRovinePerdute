@@ -19,7 +19,7 @@ public class XMLOutput {
 	 * @param path Indirizzo di destinazione del file
 	 * @param isBuffer True se si tratta di un file di buffer, false altrimenti
 	 */
-    public XMLOutput(String path, boolean isBuffer) {
+    public XMLOutput(String path) {
     	this.path = path;
     	try {
         	outputFactory = XMLOutputFactory.newInstance();
@@ -27,7 +27,7 @@ public class XMLOutput {
         	xmlIdentingWriter = new IndentingXMLStreamWriter(xmlWriter);
 			xmlIdentingWriter.writeStartDocument("utf-8", "1.0");
 			
-			if(!isBuffer) xmlIdentingWriter.writeStartElement("routes");
+			xmlIdentingWriter.writeStartElement("routes");
 		} catch (XMLStreamException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
@@ -49,11 +49,11 @@ public class XMLOutput {
     }
     
     
-    public void addRoute(String team, int cost, int cities, ArrayList<Città> hops) {
+    public void addRoute(String team, double cost, int cities, ArrayList<Città> hops) {
     	try {
     		xmlIdentingWriter.writeStartElement("route");
     		xmlIdentingWriter.writeAttribute("team", team);
-    		xmlIdentingWriter.writeAttribute("cost", Integer.toString(cost));
+    		xmlIdentingWriter.writeAttribute("cost", Double.toString(cost));
     		xmlIdentingWriter.writeAttribute("cities", Integer.toString(cities));
     		Collections.reverse(hops);
     		for(Città hop : hops) {
