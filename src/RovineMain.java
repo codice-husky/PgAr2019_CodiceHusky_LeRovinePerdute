@@ -5,7 +5,6 @@ public class RovineMain {
 	public static void main(String[] args) {
 		
 		XMLInput inputcitta = new XMLInput("xml/PgAr_Map_5.xml");
-		
 		for(int i = 0;i<5;i++) {
 			rovine.add(inputcitta.readNextCittà());	
 		}
@@ -14,7 +13,6 @@ public class RovineMain {
 		//per sapere il consumo basta invocare rovine.getConsumo();
 		//SE NON SBAGLIO
 		ArrayList<Città> percorsoH = rovine.dijkstra(false);
-		System.out.println("madonnna");
 	}
 	
 	public void addRovine (Città città) {

@@ -7,7 +7,6 @@ public  class Rovina extends LinkedList<Città>{
 	Double[] valori;
 	int[]da;
 	ArrayList<Città> percorso;
-	LinkedList<Città> copia= (LinkedList<Città>) this.clone();
 	
 	
 	public Rovina() {
@@ -41,10 +40,9 @@ public  class Rovina extends LinkedList<Città>{
     }
     
     public ArrayList<Città> dijkstra(boolean xy) {
-    	
-    	copia = (LinkedList<Città>) this.clone();;
-    	valori = new Double[copia.size()];
-		da = new int[copia.size()];
+    	/*se non risetto ogni volta che chiamo il metodo rimangono
+    	in memoria i vecchi dati e va in loop infinito*/
+    	setup();
 		
     	valori[0] = 0.0;
     	for(int i = 1;i<valori.length;i++) {
@@ -53,7 +51,7 @@ public  class Rovina extends LinkedList<Città>{
     	while(true) {
     		double min = Double.POSITIVE_INFINITY;
     		int memo = 0;
-    		for(Città città:copia) {
+    		for(Città città:this) {
     			if(!città.passato) {
     				memo = città.getId();
     				min = valori[memo];
@@ -62,19 +60,19 @@ public  class Rovina extends LinkedList<Città>{
     		}
     		int indice = memo;
     		for(int i = memo+1; i <valori.length;i++) {
-    			if(valori[i] < min && !copia.get(i).passato) {
+    			if(valori[i] < min && !this.get(i).passato) {
     				 indice =i;
     			}
     		}
-    		Città inControllo = copia.get(indice);
+    		Città inControllo = this.get(indice);
     		inControllo.passato = true;
     		for(int vicino: inControllo.getVicini()) {
-    			if(!copia.get(vicino).passato) {
+    			if(!this.get(vicino).passato) {
     				double distanza = valori[indice];
     				if(xy) {
-    					distanza += getDistXY(inControllo, copia.get(vicino));
+    					distanza += getDistXY(inControllo, this.get(vicino));
     				}else {
-    					distanza+= getDistH(inControllo, copia.get(vicino));
+    					distanza+= getDistH(inControllo, this.get(vicino));
     				}
     				if(distanza <valori[vicino]) {
     					valori[vicino] = distanza;
@@ -83,22 +81,33 @@ public  class Rovina extends LinkedList<Città>{
     			}
     		}
     		int cont = 0;
-    		for(Città c: copia) {
+    		for(Città c: this) {
     			if(!c.passato) cont++;
     			
     		}
     		if(cont == 1) break;
     		
     	} 
-    	int rovina = copia.size()-1;
+    	int rovina = this.size()-1;
     	calcolaPercorso(rovina);
     	return percorso;
     }
     public  void calcolaPercorso(int rovina){
-    	percorso.add(copia.get(rovina));
+    	percorso.add(this.get(rovina));
     	if(valori[rovina]!= 0) calcolaPercorso(da[rovina]); 
     }
     public double getConsumo() {
-    	return valori[copia.size()-1];
+    	return valori[this.size()-1];
+    }
+    
+    
+    
+    public void setup() {
+    	for(Città c: this) {
+    		c.passato = false;
+    	}
+    	da = new int[this.size()];
+    	valori = new Double[this.size()];
+    	percorso = new ArrayList<Città>();
     }
 }
