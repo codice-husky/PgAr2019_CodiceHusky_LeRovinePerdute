@@ -1,19 +1,17 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public  class Rovina extends LinkedList<Città>{
+public  class Rovina extends ArrayList<Città>{
 	
 	private static final long serialVersionUID = 3100388286862619819L;
 	Double[] valori;
 	int[]da;
-	ArrayList<Città> percorso;
+	LinkedList<Città> percorso;
+	
 	
 	
 	public Rovina() {
 		super();
-		valori = new Double[this.size()];
-		da = new int[this.size()];
-		percorso = new ArrayList<Città>();
 	}
 	
 	public Città getCittàDaId(int indice) {
@@ -39,11 +37,12 @@ public  class Rovina extends LinkedList<Città>{
     	return Math.abs(a.getCoord().getH()-b.getCoord().getH());
     }
     
-    public ArrayList<Città> dijkstra(boolean xy) {
+    public LinkedList<Città> dijkstra(boolean xy) {
     	/*se non risetto ogni volta che chiamo il metodo rimangono
-    	in memoria i vecchi dati e va in loop infinito*/
-    	setup();
-		
+    	in memoria i vecchi dati e va in loop infinito*/		
+        setup();    		
+    	
+    	
     	valori[0] = 0.0;
     	for(int i = 1;i<valori.length;i++) {
     		valori[i] = Double.POSITIVE_INFINITY; //in alternativa Double.POSITIVE_INFINITY
@@ -59,11 +58,26 @@ public  class Rovina extends LinkedList<Città>{
     			}
     		}
     		int indice = memo;
+    		/*
+    		//vecchio
     		for(int i = memo+1; i <valori.length;i++) {
     			if(valori[i] < min && !this.get(i).passato) {
     				 indice =i;
+    				 min = valori[i];
+    				 	
+    			}
+    		}*/
+    		//nuovo
+    		for(Città città: this) {
+    			if(valori[città.getId()]<min && !città.passato) {
+    				indice = città.getId();
+    				min = valori[città.getId()];
     			}
     		}
+    		
+    		
+    		
+    		//conviene usare l'arrayList
     		Città inControllo = this.get(indice);
     		inControllo.passato = true;
     		for(int vicino: inControllo.getVicini()) {
@@ -85,6 +99,7 @@ public  class Rovina extends LinkedList<Città>{
     			if(!c.passato) cont++;
     			
     		}
+    		if(inControllo.getId()==this.size()-1)break;
     		if(cont == 1) break;
     		
     	} 
@@ -106,8 +121,44 @@ public  class Rovina extends LinkedList<Città>{
     	for(Città c: this) {
     		c.passato = false;
     	}
-    	da = new int[this.size()];
     	valori = new Double[this.size()];
-    	percorso = new ArrayList<Città>();
+    	da = new int[this.size()];
+    	percorso = new LinkedList<Città>();
     }
+    
+    
+    /*public double[] dijkstraV2() {
+    	int lunghezza = this.size();
+    	boolean visitati[] = new boolean[lunghezza];
+    	double distanza[] = new double[lunghezza];
+    	distanza[0] = 0;
+    	for(int i = 1;i<lunghezza;i++) {
+    		distanza[i] = Double.POSITIVE_INFINITY;
+    	}
+    	for(int i = 0;i<lunghezza-1;i++) {
+    		int minLung = trovaMin(distanza,visitati);
+    		visitati[minLung] = true;
+    		for(int j = 0;j<lunghezza;j++) {
+    			if(this.get(minLung).getVicini().get(j) != 0 && !visitati[j] && distanza[minLung]!= Double.POSITIVE_INFINITY) {
+    				double nuovaDistanza = distanza[minLung] + this.get(minLung).getVicini().get(j);
+    				if(nuovaDistanza<distanza[j]) {
+    					distanza[j] = nuovaDistanza;
+    				}
+    			}
+    		}
+    	}
+    	return distanza;
+    }*/
+    
+    public int trovaMin(double distanza[],boolean visitati[]) {
+    	int minLungh = -1;
+    	for(int i = 0;i< distanza.length;i++) {
+    		if(!visitati[i]&& (minLungh == -1 || distanza[i]<distanza[minLungh] )){
+    			minLungh = i;
+    		}
+    	}
+    	return minLungh;
+    }
+    
+    
 }

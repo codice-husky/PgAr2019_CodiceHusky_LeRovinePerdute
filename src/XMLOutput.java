@@ -2,6 +2,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -49,7 +50,7 @@ public class XMLOutput {
     }
     
     
-    public void addRoute(String team, double cost, int cities, ArrayList<Città> hops) {
+    public void addRoute(String team, double cost, int cities, LinkedList<Città> hops) {
     	try {
     		xmlIdentingWriter.writeStartElement("route");
     		xmlIdentingWriter.writeAttribute("team", team);
