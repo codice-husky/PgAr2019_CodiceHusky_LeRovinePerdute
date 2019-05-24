@@ -57,7 +57,7 @@ public class RovineMain {
 		for(int i=0; i< FILE.length; i++) {
 			System.out.println((i+1)+") \t"+ FILE[i]);
 		}
-		System.out.println("scegli un file : ");
+		System.out.println("Scegli un file : ");
 		
 		int scelta = (Integer.parseInt(sc.nextLine()))-1;
 				
@@ -71,16 +71,18 @@ public class RovineMain {
 			}
 		} while(citta!=null);	
 		
+		System.out.println("Leggendo la mappa");
+		
 		XMLOutput output = new XMLOutput("xml/output.xml");
 		boolean xy = true;
 		String[] team = {"Tonatiuh","Metztli"};
-		System.out.println("via");
 		
 		for (int i=0; i<2;i++) {
+			System.out.println("\nI nostri esperti stanno cercando il percorso migliore per il team "+team[i]);
 			LinkedList<Città> percorso = rovine.dijkstra(xy);
 			double costo = rovine.getConsumo();
 			xy=false;
-			System.out.println("ciao");
+			System.out.println("Abbiamo trovato il percorso perfetto che passa per "+ percorso.size()+" città per un costo di "+ costo);
 			output.addRoute(team[i], costo, percorso.size(), percorso);
 		}
 		
@@ -94,6 +96,7 @@ public class RovineMain {
 		}*/
 		
 		
+		System.out.println("\nControlla il file output.xml per conoscere la strada da seguire \nBUON VIAGGIO");
 	}
 	
 	public void addRovine (Città città) {
