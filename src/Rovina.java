@@ -8,66 +8,56 @@ public  class Rovina extends ArrayList<Città>{
 	int[]da;
 	LinkedList<Città> percorso;
 	
-	
-	
 	public Rovina() {
-		super();
+		super();	
 	}
 	
-	public Città getCittàDaId(int indice) {
-    	for(Città città:this) {
-    		if(città.getId() == indice) return città;
-    	}
-    	return null;
-    }
-    public Città getCittàDaNome(String nome) {
-    	for(Città città:this) {
-    		if(città.getNome().equals(nome)) return città;
-    	}
-    	return null;
-    }
-	
+	/**
+	 * Metodo che date due città applica pitagora per ricavare la 
+	 * distanza tra 2 coordinate (x,y)
+	 * 
+	 * @param a  	prima città da confrontare
+	 * @param b		seconda città da confrontare
+	 * @return		la distanza tra le due città secondo pitagora
+	 * */
     public double getDistXY(Città a,Città b) {
     	double x =a.getCoord().getX() - b.getCoord().getX();
     	double y = a.getCoord().getY() - b.getCoord().getY();
     	double diag = Math.sqrt(Math.pow(x, 2)+Math.pow(y, 2));
     	return diag;
     }    
+    /**
+     * Metodo che calcola la distanza tra 2 città in base alla altitudine
+     * @param a  	prima città da confrontare
+	 * @param b		seconda città da confrontare
+	 * @return		la distanza tra le due città in base alla differenza
+	 * 				di altitudine (sempre positiva)
+     * */
     public int getDistH(Città a,Città b) {
     	return Math.abs(a.getCoord().getH()-b.getCoord().getH());
     }
     
+    /**
+     * Algrotimo di Dijkstra converito da come ci è stato spiegato a Java
+     * (Non so il perché ma se metto i commenti nel codice diventa molto più
+     * lento)
+     * @param xy   	(non è il metodo più bello) se xy è true chiama Dijkstra
+     * 				per la squadra Tonatiuh altrimenti Metztli
+     * @return 		il percorso da percorrere (al contrario) 
+     * */
+    
     public LinkedList<Città> dijkstra(boolean xy) {
-    	/*se non risetto ogni volta che chiamo il metodo rimangono
-    	in memoria i vecchi dati e va in loop infinito*/		
-        setup();    		
-    	
-    	
+    	setup();    		
+   
     	valori[0] = 0.0;
     	for(int i = 1;i<valori.length;i++) {
-    		valori[i] = Double.POSITIVE_INFINITY; //in alternativa Double.POSITIVE_INFINITY
+    		valori[i] = Double.POSITIVE_INFINITY; 
     	}
+    	
     	while(true) {
     		double min = Double.POSITIVE_INFINITY;
-    		int memo = 0;
-    		for(Città città:this) {
-    			if(!città.passato) {
-    				memo = città.getId();
-    				min = valori[memo];
-    				break;
-    			}
-    		}
-    		int indice = memo;
-    		/*
-    		//vecchio
-    		for(int i = memo+1; i <valori.length;i++) {
-    			if(valori[i] < min && !this.get(i).passato) {
-    				 indice =i;
-    				 min = valori[i];
-    				 	
-    			}
-    		}*/
-    		//nuovo
+    		int indice = 0;
+    		
     		for(Città città: this) {
     			if(valori[città.getId()]<min && !città.passato) {
     				indice = città.getId();
@@ -75,9 +65,6 @@ public  class Rovina extends ArrayList<Città>{
     			}
     		}
     		
-    		
-    		
-    		//conviene usare l'arrayList
     		Città inControllo = this.get(indice);
     		inControllo.passato = true;
     		for(int vicino: inControllo.getVicini()) {
@@ -107,15 +94,32 @@ public  class Rovina extends ArrayList<Città>{
     	calcolaPercorso(rovina);
     	return percorso;
     }
+    
+    /**
+     * Metodo ricorsivo che aggiunge l'id della città precedente a quella
+     * che si controlla in modo da ricostruire il percorso al contrario
+     * @param rovina	l'id della città che si sta controllando
+     */
+    
     public  void calcolaPercorso(int rovina){
     	percorso.add(this.get(rovina));
     	if(valori[rovina]!= 0) calcolaPercorso(da[rovina]); 
     }
+    
+    /**
+     * Metodo che restituisce il consumo minimo necessario ad arrivare
+     * alla rovina perduta
+     * 
+     * @return il consumo minimo
+     * */
     public double getConsumo() {
     	return valori[this.size()-1];
     }
     
-    
+    /**
+     * Metodo che funge un po da costruttore solo che deve essere richiamato
+     * più volte senza cancellare tutto
+     * */
     
     public void setup() {
     	for(Città c: this) {
@@ -124,41 +128,5 @@ public  class Rovina extends ArrayList<Città>{
     	valori = new Double[this.size()];
     	da = new int[this.size()];
     	percorso = new LinkedList<Città>();
-    }
-    
-    
-    /*public double[] dijkstraV2() {
-    	int lunghezza = this.size();
-    	boolean visitati[] = new boolean[lunghezza];
-    	double distanza[] = new double[lunghezza];
-    	distanza[0] = 0;
-    	for(int i = 1;i<lunghezza;i++) {
-    		distanza[i] = Double.POSITIVE_INFINITY;
-    	}
-    	for(int i = 0;i<lunghezza-1;i++) {
-    		int minLung = trovaMin(distanza,visitati);
-    		visitati[minLung] = true;
-    		for(int j = 0;j<lunghezza;j++) {
-    			if(this.get(minLung).getVicini().get(j) != 0 && !visitati[j] && distanza[minLung]!= Double.POSITIVE_INFINITY) {
-    				double nuovaDistanza = distanza[minLung] + this.get(minLung).getVicini().get(j);
-    				if(nuovaDistanza<distanza[j]) {
-    					distanza[j] = nuovaDistanza;
-    				}
-    			}
-    		}
-    	}
-    	return distanza;
-    }*/
-    
-    public int trovaMin(double distanza[],boolean visitati[]) {
-    	int minLungh = -1;
-    	for(int i = 0;i< distanza.length;i++) {
-    		if(!visitati[i]&& (minLungh == -1 || distanza[i]<distanza[minLungh] )){
-    			minLungh = i;
-    		}
-    	}
-    	return minLungh;
-    }
-    
-    
+    }    
 }
