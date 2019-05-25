@@ -2,7 +2,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -49,7 +49,7 @@ public class XMLInput {
     public Città readNextCittà() {
     	int idCittà = 0;
     	String nome = null, coordX = null, coordY = null, coordH = null;
-    	LinkedList<Integer> link = new LinkedList<Integer>();
+    	ArrayList<Integer> link = new ArrayList<Integer>();
     	try {
     		if(xmlStreamReader.hasNext()) lastEventType = xmlStreamReader.next();
     		

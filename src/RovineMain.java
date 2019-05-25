@@ -6,7 +6,7 @@ public class RovineMain {
 	private static final String LETTURA = "Leggendo la mappa";
 	private static final String FILE_INPUT = "%d \t %s";
 	private static final String PERCORSO =  "\nI nostri esperti stanno cercando il percorso migliore per il team ";
-	private static final String RISULTATO = "Abbiamo trovato il percorso perfetto che passa per %d città per un costo di %f";
+	private static final String RISULTATO = "Abbiamo trovato il percorso perfetto che passa per %d città per un costo di %s";
 	private static final String FILE_OUTPUT = "xml/output.xml";
 	private static final String OUTPUT = "\nControlla il file output.xml per conoscere la strada da seguire \nBUON VIAGGIO";
 	private static final String[] FILE = {
@@ -23,7 +23,7 @@ public class RovineMain {
 		
 		Scanner sc = new Scanner(System.in);	
 		//visualizzazione dei file disponibili
-		for(int i=0; i< FILE.length; i++) {
+		for(int i = 0; i < FILE.length; i++) {
 			System.out.println(String.format(FILE_INPUT ,(i+1),FILE[i]));
 		}
 		int scelta = 0;
@@ -31,7 +31,7 @@ public class RovineMain {
 		while(true) {
 			try {
 				System.out.print(SCELTA);
-				scelta = (Integer.parseInt(sc.nextLine()))-1;
+				scelta = (Integer.parseInt(sc.nextLine())) - 1;
 				if(scelta < 1 || scelta > 6) throw new Exception();
 				break;
 			}catch(Exception e) {
@@ -44,10 +44,10 @@ public class RovineMain {
 		//lettura 
 		do {
 			citta = inputcitta.readNextCittà();
-			if(citta!=null) {
+			if(citta != null) {
 				rovine.add(citta);
 			}
-		} while(citta!=null);	
+		} while(citta != null);	
 		
 		System.out.println(LETTURA);
 		
@@ -55,12 +55,12 @@ public class RovineMain {
 		boolean xy = true;
 		String[] team = {"Tonatiuh","Metztli"};
 		//applicazione Dijkstra
-		for (int i=0; i<2;i++) {
+		for (int i = 0; i < 2; i++) {
 			System.out.println(PERCORSO + team[i]);
 			LinkedList<Città> percorso = rovine.dijkstra(xy);  //non è il metodo più bello...
-			//se xy è true chiama dijkstra per la squadra Tonatiuh altrimenti Metztli
+			//se xy è true, chiama dijkstra per la squadra Tonatiuh, altrimenti per Metztli
 			double costo = rovine.getConsumo();
-			xy=false;
+			xy = false;
 			System.out.println(String.format(RISULTATO,percorso.size(),costo));
 			//scrittura 
 			output.addRoute(team[i], costo, percorso.size(), percorso);
@@ -74,5 +74,4 @@ public class RovineMain {
 	public void addRovine (Città città) {
 		rovine.add(città);
 	}
-	
 }

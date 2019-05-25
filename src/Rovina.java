@@ -21,9 +21,9 @@ public  class Rovina extends ArrayList<Città>{
 	 * @return		la distanza tra le due città secondo pitagora
 	 * */
     public double getDistXY(Città a,Città b) {
-    	double x =a.getCoord().getX() - b.getCoord().getX();
+    	double x = a.getCoord().getX() - b.getCoord().getX();
     	double y = a.getCoord().getY() - b.getCoord().getY();
-    	double diag = Math.sqrt(Math.pow(x, 2)+Math.pow(y, 2));
+    	double diag = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     	return diag;
     }    
     /**
@@ -34,13 +34,13 @@ public  class Rovina extends ArrayList<Città>{
 	 * 				di altitudine (sempre positiva)
      * */
     public int getDistH(Città a,Città b) {
-    	return Math.abs(a.getCoord().getH()-b.getCoord().getH());
+    	return Math.abs(a.getCoord().getH() - b.getCoord().getH());
     }
     
     /**
      * Algrotimo di Dijkstra converito da come ci è stato spiegato a Java
-     * (Non so il perché ma se metto i commenti nel codice diventa molto più
-     * lento)
+     * (Non sappiamo il perché ma se metto i commenti nel codice diventa
+     * molto più lento)
      * @param xy   	(non è il metodo più bello) se xy è true chiama Dijkstra
      * 				per la squadra Tonatiuh altrimenti Metztli
      * @return 		il percorso da percorrere (al contrario) 
@@ -50,7 +50,8 @@ public  class Rovina extends ArrayList<Città>{
     	setup();    		
    
     	valori[0] = 0.0;
-    	for(int i = 1;i<valori.length;i++) {
+    	
+    	for(int i = 1; i < valori.length; i++) {
     		valori[i] = Double.POSITIVE_INFINITY; 
     	}
     	
@@ -59,23 +60,23 @@ public  class Rovina extends ArrayList<Città>{
     		int indice = 0;
     		
     		for(Città città: this) {
-    			if(valori[città.getId()]<min && !città.passato) {
+    			if(valori[città.getId()] < min && !città.passato) {
     				indice = città.getId();
     				min = valori[città.getId()];
     			}
     		}
-    		
     		Città inControllo = this.get(indice);
     		inControllo.passato = true;
     		for(int vicino: inControllo.getVicini()) {
-    			if(!this.get(vicino).passato) {
+    			Città ilVicino = this.get(vicino);
+    			if(!ilVicino.passato) {
     				double distanza = valori[indice];
     				if(xy) {
-    					distanza += getDistXY(inControllo, this.get(vicino));
+    					distanza += getDistXY(inControllo, ilVicino);
     				}else {
-    					distanza+= getDistH(inControllo, this.get(vicino));
+    					distanza+= getDistH(inControllo, ilVicino);
     				}
-    				if(distanza <valori[vicino]) {
+    				if(distanza < valori[vicino]) {
     					valori[vicino] = distanza;
     					da[vicino] = inControllo.getId();
     				}
@@ -86,11 +87,11 @@ public  class Rovina extends ArrayList<Città>{
     			if(!c.passato) cont++;
     			
     		}
-    		if(inControllo.getId()==this.size()-1)break;
+    		if(inControllo.getId() == this.size() - 1) break;
     		if(cont == 1) break;
     		
     	} 
-    	int rovina = this.size()-1;
+    	int rovina = this.size() - 1;
     	calcolaPercorso(rovina);
     	return percorso;
     }
@@ -103,7 +104,7 @@ public  class Rovina extends ArrayList<Città>{
     
     public  void calcolaPercorso(int rovina){
     	percorso.add(this.get(rovina));
-    	if(valori[rovina]!= 0) calcolaPercorso(da[rovina]); 
+    	if(valori[rovina] != 0) calcolaPercorso(da[rovina]); 
     }
     
     /**
@@ -113,7 +114,7 @@ public  class Rovina extends ArrayList<Città>{
      * @return il consumo minimo
      * */
     public double getConsumo() {
-    	return valori[this.size()-1];
+    	return valori[this.size() - 1];
     }
     
     /**
