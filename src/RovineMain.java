@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class RovineMain {
 	private static final String SCELTA = "Scegli un file : ";
-	private static final String LETTURA = "Leggendo la mappa";
-	private static final String FILE_INPUT = "%d \t %s";
-	private static final String PERCORSO =  "\nI nostri esperti stanno cercando il percorso migliore per il team ";
+	private static final String LETTURA = "Stiamo leggendo la mappa";
+	private static final String FILE_INPUT = "%d)\t%s";
+	private static final String PERCORSO =  "\nI nostri esperti stanno studiando il percorso migliore per il team ";
 	private static final String RISULTATO = "Abbiamo trovato il percorso perfetto che passa per %d città per un costo di %s";
 	private static final String FILE_OUTPUT = "xml/output.xml";
 	private static final String OUTPUT = "\nControlla il file output.xml per conoscere la strada da seguire \nBUON VIAGGIO";
@@ -32,7 +32,7 @@ public class RovineMain {
 			try {
 				System.out.print(SCELTA);
 				scelta = (Integer.parseInt(sc.nextLine())) - 1;
-				if(scelta < 1 || scelta > 6) throw new Exception();
+				if(scelta < 0 || scelta > (FILE.length)-1) throw new Exception();
 				break;
 			}catch(Exception e) {
 				System.out.println("Devi inserire un numero tra 1 e 6");
